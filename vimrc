@@ -17,3 +17,8 @@ let mapleader = ","
 nnoremap Q <nop>
 
 set bg=dark
+
+" syntastic
+let g:syntastic_python_checkers=['python', 'pyflakes', 'pep8']
+let g:syntastic_python_pep8_args='--ignore E501,E12'
+
