@@ -23,3 +23,9 @@ let g:syntastic_python_checkers=['python', 'pyflakes', 'pep8']
 let g:syntastic_python_pep8_args='--ignore E501,E12'
 
 let g:hardtime_default_on = 1
+
+" strip spaces/tabs on save
+autocmd BufWritePre * :%s/\t/    /ge
+autocmd FileType make setlocal noexpandtab
+autocmd BufWritePre * :%s/\s\+$//ge
+autocmd BufWritePre Makefile :%s/    /\t/ge
