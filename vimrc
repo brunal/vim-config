@@ -29,3 +29,8 @@ autocmd BufWritePre * :%s/\t/    /ge
 autocmd FileType make setlocal noexpandtab
 autocmd BufWritePre * :%s/\s\+$//ge
 autocmd BufWritePre Makefile :%s/    /\t/ge
+
+" ctrlP for buffers
+nmap ; :CtrlPBuffer<CR>
+
+set hlsearch  " <C-L> clears it
