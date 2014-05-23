@@ -34,3 +34,5 @@ autocmd BufWritePre Makefile :%s/    /\t/ge
 nmap ; :CtrlPBuffer<CR>
 
 set hlsearch  " <C-L> clears it
+
+nnoremap <Space> zz
