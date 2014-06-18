@@ -16,8 +16,6 @@ let mapleader = ","
 " disable ex mode
 nnoremap Q <nop>
 
-set bg=dark
-
 " syntastic
 let g:syntastic_python_checkers=['python', 'pyflakes', 'pep8']
 let g:syntastic_python_pep8_args='--ignore E501,E12'
@@ -39,3 +37,9 @@ nmap ; :CtrlPBuffer<CR>
 set hlsearch  " <C-L> clears it
 
 nnoremap <Space> zz
+
+" color scheme
+let g:solarized_termcolors=256
+colorscheme solarized
+
+set bg=dark
