@@ -25,12 +25,6 @@ nnoremap <S-Tab> :lprev<CR>
 
 let g:hardtime_default_on = 1
 
-" strip spaces/tabs on save
-autocmd BufWritePre * :%s/\t/    /ge
-autocmd FileType make setlocal noexpandtab
-autocmd BufWritePre * :%s/\s\+$//ge
-autocmd BufWritePre Makefile :%s/    /\t/ge
-
 " ctrlP for buffers
 nmap ; :CtrlPBuffer<CR>
 
