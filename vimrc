@@ -13,6 +13,8 @@ filetype plugin indent on
 
 let mapleader = ","
 
+set wildignore+=*.pyc
+
 " disable ex mode
 nnoremap Q <nop>
 
@@ -37,3 +39,5 @@ let g:solarized_termcolors=256
 colorscheme solarized
 
 set bg=dark
+
+set list
