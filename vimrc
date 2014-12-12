@@ -18,10 +18,24 @@ set wildignore+=*.pyc
 " disable ex mode
 nnoremap Q <nop>
 
-" syntastic
-let g:syntastic_python_checkers=['python', 'pyflakes', 'pep8']
-let g:syntastic_python_pep8_args='--ignore E501,E12'
-let g:syntastic_always_populate_loc_list = 1
+" neomake
+autocmd BufWritePost *.py Neomake
+" let g:neomake_python_enabled_makers=['pyflakes', 'pep8', 'pylint']  " 'python' missing
+let g:neomake_python_pep8_maker = {
+	\ 'args': ['--ignore', 'E501,E12'],
+	\ }
+
+let g:neomake_error_sign = {
+	\ 'text': '>>',
+	\ 'texthl': 'ErrorMsg',
+	\ }
+hi MyWarningMsg ctermbg=Yellow ctermfg=0
+let g:neomake_warning_sign = {
+	\ 'text': '>>',
+	\ 'texthl': 'MyWarningMsg',
+	\ }
+
+
 nnoremap <Tab> :lnext<CR>
 nnoremap <S-Tab> :lprev<CR>
 
