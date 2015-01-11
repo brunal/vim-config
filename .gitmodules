@@ -46,3 +46,6 @@
 [submodule "bundle/vim-vinegar"]
 	path = bundle/vim-vinegar
 	url = git@github.com:tpope/vim-vinegar.git
+[submodule "bundle/vim-python-combined"]
+	path = bundle/vim-python-combined
+	url = git://github.com/mitsuhiko/vim-python-combined.git
