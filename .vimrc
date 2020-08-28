@@ -35,8 +35,7 @@ set hlsearch  " <C-L> clears it
 nnoremap <Space> zz
 
 " color scheme
-let g:solarized_termcolors=256
-colorscheme solarized
+colorscheme desert256
 
 set bg=dark
 
