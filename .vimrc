@@ -5,11 +5,11 @@
 " from here, do
 " $ git submodule init
 " $ git submodule update
+set nocompatible
+
+source /usr/share/vim/google/google.vim
 
 execute pathogen#infect()
-
-syntax on
-filetype plugin indent on
 
 let mapleader = ","
 
@@ -20,6 +20,7 @@ nnoremap Q <nop>
 
 " syntastic
 " let g:syntastic_python_checkers=['python', 'pyflakes', 'pep8']
+" let g:syntastic_python_checkers=['gpylint']
 " let g:syntastic_python_pep8_args='--ignore E501,E12'
 " let g:syntastic_always_populate_loc_list = 1
 nnoremap <Tab> :lnext<CR>
@@ -35,12 +36,59 @@ set hlsearch  " <C-L> clears it
 nnoremap <Space> zz
 
 " color scheme
+" let g:solarized_termcolors=256
+" colorscheme solarized
 colorscheme desert256
 
 set bg=dark
 
-set list
+
+" Google-specific plugins
+Glug piper plugin[mappings]='<leader>p'
+Glug g4
+Glug youcompleteme-google
+Glug codefmt
+Glug codefmt-google
+" augroup autoformat_settings
+"  autocmd FileType markdown AutoFormatBuffer mdformat
+"  autocmd FileType gcl AutoFormatBuffer gclfmt
+"  autocmd FileType borg AutoFormatBuffer gclfmt
+" augroup END
+
+Glug corpweb
+Glug critique
+nnoremap <leader>ws :CorpWebCs <cword> <Cr>
+nnoremap <leader>wf :CorpWebCsFile <Cr>
+Glug add_usings plugin[mappings]
+
+syntax on
+filetype plugin indent on
+
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+
+" read bashrc for !
+" set shellcmdflag=-ic
+
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+      \ --ignore .git
+      \ --ignore .svn
+      \ --ignore .hg
+      \ --ignore .DS_Store
+      \ --ignore "**/*.pyc"
+      \ --ignore .git5_specs
+      \ --ignore review
+      \ -g ""'
+
+"Normal mode + BUILD fix.
+noremap <leader>cf :py3f /usr/lib/clang-include-fixer/clang-include-fixer.py<cr>:w<cr>:BlazeDepsUpdate<cr>
+"Query mode.
+nnoremap <leader>qf :let g:clang_include_fixer_query_mode=1<cr>:py3f /usr/lib/clang-include-fixer/clang-include-fixer.py<cr>
 
 set encoding=utf-8
-source /usr/share/vim/google/google.vim 
-Glug youcompleteme-google
+
+set autoread
+nnoremap - :Ex<CR>
+
+" Match angle brackets in C++ source code.
+autocmd FileType cpp setlocal matchpairs+=<:>
+
